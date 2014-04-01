@@ -36,6 +36,14 @@ GameManager.prototype.restart = function () {
   this.setup();
 };
 
+HTMLActuator.prototype.restart = function () {
+  if (ga) {
+    ga("send", "event", "game", "restart");
+  }
+
+  this.clearMessage();
+};
+
 // Set up the game
 GameManager.prototype.setup = function () {
   this.grid         = new Grid(this.size);
